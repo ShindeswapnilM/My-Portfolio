@@ -1,0 +1,241 @@
+:root {
+	--bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --text-main: #f8fafc;
+        --text-dim: #94a3b8;
+        --accent: #38bdf8;
+        --accent-glow: rgba(56, 189, 248, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+	/* Container to handle the glow and centering */
+	.profile-container {
+   	 position: relative;
+  	  width: 250px;
+  	  height: 250px;
+  	  margin-bottom: 25px;
+  	  display: flex;
+  	  justify-content: center;
+ 	   align-items: center;
+	}
+
+	/* The actual Image */
+	.profile-img {
+	    width: 100%;
+  	  height: 100%;
+  	  object-fit: cover; /* Ensures the photo doesn't stretch */
+  	  border-radius: 50%;
+  	  border: 3px solid var(--accent);
+  	  position: relative;
+ 	   z-index: 2;
+  	  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  	  cursor: pointer;
+	}
+
+	/* Interactive Background Glow (Professional 2026 Look) */
+	.profile-container::before {
+	    content: '';
+	    position: absolute;
+	    width: 110%;
+ 	    background: var(--accent);
+ 	    border-radius: 50%;
+  	    filter: blur(20px);
+   	    animation: pulse-glow 3s infinite ease-in-out;
+	}
+
+	/* Hover Interaction: Image grows and glow intensifies */
+	.profile-container:hover .profile-img {
+	    transform: scale(1.08) rotate(2deg);
+  	    border-color: #818cf8; /* Changes color on hover */
+  	    box-shadow: 0 0 30px var(--accent-glow);
+	}
+
+	.profile-container:hover::before {
+	    opacity: 0.6;
+	    filter: blur(25px);
+	}
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
+
+	.social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--text-dim);
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover Effects for each platform */
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: white;
+}
+
+/* Specific colors on hover */
+.social-links a[title="LinkedIn"]:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+.social-links a[title="GitHub"]:hover {
+    background: #333;
+    border-color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.social-links a[title="HackerRank"]:hover {
+    background: #2ec866;
+    border-color: #2ec866;
+    box-shadow: 0 5px 15px rgba(46, 200, 102, 0.4);
+}
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+
+	/* Animation for the breathing glow */
+	@keyframes pulse-glow {
+    	0%, 100% { transform: scale(1); opacity: 0.3; }
+    	50% { transform: scale(1.05); opacity: 0.5; }
+	}
